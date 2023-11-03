@@ -21,20 +21,20 @@ public class Main {
   }
 
   private static int sideLength(Scanner scanner, String sideName) {
-    int side;
+    int side; // ここで辺の長さを格納するための変数を宣言
     do {
-      System.out.print("辺 " + sideName + " の長さを入力してください (1〜99): ");
-      while (!scanner.hasNextInt()) {
+      System.out.print("辺 " + sideName + " の長さを入力してください (1〜99): "); // ユーザーに辺の長さの入力を求める
+      while (!scanner.hasNextInt()) {  // もしユーザーが整数以外のものを入力したらエラーメッセージを表示し、再入力を求める
         System.out.println("1から99の整数を半角数字で入力してください。");
         scanner.next(); // 不正な入力をスキップ
       }
-      side = scanner.nextInt();
+      side = scanner.nextInt();  // ユーザーが入力した整数を読み取って変数sideに代入
       if (side < 1 || side > 99) {
         System.out.println("1から99の整数を半角数字で入力してください。");
       }
-    } while (side < 1 || side > 99);
+    } while (side < 1 || side > 99);  // 入力された数値が1から99の範囲内であるまでループ
 
-    return side;
+    return side;  // 最終的に適切な値が入力されたら、その値を呼び出し元のメソッドに返す
   }
 
   private static boolean triangle(int a, int b, int c) {
