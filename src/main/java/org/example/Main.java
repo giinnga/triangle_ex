@@ -27,7 +27,13 @@ public class Main {
 
     do {
       System.out.print("辺 " + sideName + " の長さを入力してください (1〜99): "); // ユーザーに辺の長さの入力を求める
-      input = scanner.next(); // 入力を文字列として読み取る
+      input = scanner.nextLine(); // 入力を文字列として読み取る
+
+      if(input.isEmpty()){
+        System.out.println("入力が確認できませんでした。辺の長さを入力してください。"); // ユーザーが何も入力せずにエンターキーを押した場合のチェック
+        continue; // ユーザーに再度入力させる
+      }
+
       isValid = input.matches("[1-9][0-9]?"); // 半角数字1〜99の正規表現チェック
 
       if (!isValid) {
